@@ -1,8 +1,13 @@
-# VE-KD:a-method-for-training-smaller-language-models-adapted-to-specific-domains
+# VE-KD: Vocabulary-Expansion Knowledge-Distillation for Training Smaller Domain-Specific Language Models
 
-This repository contains the model and evaluation dataset of our paper.
+This repository contains the model, evaluation dataset and distillation script of our paper.
+
+We use the script from [transformers](https://github.com/huggingface/transformers/tree/v4.23.0/examples/research_projects/distillation)
+to build our distillation script.
+
 We use the same scripts from [LinkBERT](https://github.com/michiyasunaga/LinkBERT).
 for fine-tuning model, please get the LinkBERT/src/{seqcls,tokcls}.
+
 
 ## Distillation VE-KD
 To distillation VE-KD from teacher model such as BERT-base,
