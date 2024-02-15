@@ -8,12 +8,7 @@ for fine-tuning model, please get the LinkBERT/src/{seqcls,tokcls}.
 To distillation VE-KD from teacher model such as BERT-base,
 using command as follows:
 
-Hyperparameters:
-alpha_mse, alpha_ce, alpha_mlm, alpha_cos: weights of loss functions.\
-alpha_to: tolerance setting value.
-
-
-such as using 2 GPUs for training.
+Using 2 GPUs for training
 ```
 CUDA_VISIBLE_DEVICES=1,2 python -m torch.distributed.launch     --nproc_per_node=2     --nnodes=1     --node_rank=0     distillation/train_vekd.py         
 --force --n_gpu 2           --student_pretrained_weights studentweight/pytorch.bin #option  \
@@ -21,6 +16,11 @@ CUDA_VISIBLE_DEVICES=1,2 python -m torch.distributed.launch     --nproc_per_node
 --teacher_name bert-base-uncased  --alpha_mse 1.0    --alpha_ce 2.0 --alpha_mlm 1.0 --alpha_cos 5.0  --mlm --dump_path output \
 --data_file distillation/sample.txt  --token_name distillation/vocab.txt --n_epoch 5 --batch_size 10 --alpha_to 0.5
 ```
+
+Hyperparameters:\
+alpha_mse, alpha_ce, alpha_mlm, alpha_cos: weights of loss functions.\
+alpha_to: tolerance setting value.
+
 
 
 ## Fine-tune VE-KD
